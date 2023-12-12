@@ -1,0 +1,45 @@
+@import '../../../styles/settings.scss';
+.downRow {
+    width: 100vw;
+}
+
+h2 {
+    font-family: $font-logo;
+    color: $color-warning;
+    font-weight: 700;
+    font-size: 50px;
+    margin: auto;
+}
+
+.iconLink {
+    position: relative;
+    font-size: 25px;
+    &.active {
+        border: 1px solid green;
+    }
+} 
+
+.icon {
+    color: $color-warning;
+}
+
+.iconLink:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-warning;
+    background: linear-gradient(90deg, transparent, $color-warning);
+    transition: width 0.3s;
+}
+
+.iconLink:hover:after {
+    width: 100%;
+}
+
+.linkActive {
+    font-size: 35px;
+
+}

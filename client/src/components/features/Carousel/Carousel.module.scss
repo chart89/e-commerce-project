@@ -1,0 +1,13 @@
+.carouselImg {
+    width: 800px;
+    height: 450px;
+    text-align: center;
+    }
+
+.carouselDiv {
+    width: 800px;
+    height: 450px;
+    img {
+        object-fit: fill;
+    }
+}

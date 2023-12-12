@@ -8,9 +8,13 @@ import * as cors from 'cors';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CarsModule } from './cars/cars.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
-  imports: [CarsModule],
+  imports: [
+    
+    CarsModule],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -22,3 +26,9 @@ export class AppModule implements NestModule {
     });
   }
 }
+
+/*
+ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'client', 'build'),
+    }),
+  */

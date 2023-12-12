@@ -1,0 +1,47 @@
+@import '../../../styles/settings.scss';
+
+.redLine {
+    background: $color-warning;
+    width: 100vw;
+}
+
+.redLineAp {
+    color: $color-light;
+    font-family: $font-text;
+    margin: 5px 20px;
+}
+
+.redLineLink {
+    position: relative;
+    color: $color-light;
+    font-family: $font-text;
+    margin: 5px 20px;
+    text-decoration: none;
+}
+
+.redLineLink:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-light;
+    background: linear-gradient(90deg, transparent, $color-light);
+    transition: width 0.3s;
+}
+
+.redLineLink:hover {
+    color: $color-light;
+}
+
+.redLineLink:hover:after {
+    width: 100%;
+}
+
+
+
+
+.rghCol {
+    text-align: end;
+}

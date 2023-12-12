@@ -1,0 +1,36 @@
+@import '../../../styles/settings.scss';
+
+.listIMG {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.listCard:after {
+    content: '';
+    width: 100%;
+    height: 20%;
+    background-color: $color-warning;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0.2;
+    transition: 1s all;
+}
+
+.listCard:hover:after {
+    top: 0;
+    left: 0;
+}
+
+.listCard {
+    width: 400px;
+}
+
+.listBody {
+    color: $color-dark;
+}
+
+.listBody:hover {
+    color: $color-warning;
+}

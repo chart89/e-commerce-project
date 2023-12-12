@@ -11,7 +11,8 @@ function getCars() {
       engine: '2.0',
       HP: 120,
       price: 98000,
-      description: 'This car have been designed by Hicarii'
+      description: 'This car have been designed by Hicarii',
+      picture: 'lambo.jpg'
     },
     {
       id: 'fd105551-0f0d-4a9f-bc41-c559c8a17261',
@@ -20,7 +21,8 @@ function getCars() {
       engine: '3.2',
       HP: 320,
       price: 290000,
-      description: 'This model is the main car of comapny'
+      description: 'This model is the main car of comapny',
+      picture: 'beetle.jpg'
     },
     {
       id: 'fd105551-0f0d-4a9f-bc41-c559c8a17262',
@@ -29,7 +31,8 @@ function getCars() {
       engine: '2.0',
       HP: 120,
       price: 120000,
-      description: 'This model is bigger than CX-3'
+      description: 'This model is bigger than CX-3',
+      picture: 'redbeetle.jpg'
     },
     {
       id: 'fd105551-0f0d-4a9f-bc41-c559c8a17263',
@@ -38,7 +41,8 @@ function getCars() {
       engine: '3.0',
       HP: 180,
       price: 168000,
-      description: 'Engine of this model is legendary'
+      description: 'Engine of this model is legendary',
+      picture: 'bus1.jpg'
     },
     {
         id: 'fd105551-0f0d-4a9f-bc41-c559c8a17264',
@@ -47,8 +51,49 @@ function getCars() {
         engine: '1.5',
         HP: 120,
         price: 90000,
-        description: 'One of the smallest car of company'
+        description: 'One of the smallest car of company',
+        picture: 'bus2.jpg'
     },
+    {
+      id: 'fd105551-0f0d-4a9f-bc41-c559c8a17265',
+      mark: 'Mazda',
+      model: 'MX-5',
+      engine: '1.5',
+      HP: 120,
+      price: 90000,
+      description: 'One of the smallest car of company',
+      picture: 'sedan1.jpg'
+  },
+  {
+    id: 'fd105551-0f0d-4a9f-bc41-c559c8a17266',
+    mark: 'Mazda',
+    model: 'MX-5',
+    engine: '1.5',
+    HP: 120,
+    price: 90000,
+    description: 'One of the smallest car of company',
+    picture: 'sedan2.jpg'
+  },
+  {
+    id: 'fd105551-0f0d-4a9f-bc41-c559c8a17267',
+    mark: 'Mazda',
+    model: 'MX-5',
+    engine: '1.5',
+    HP: 120,
+    price: 90000,
+    description: 'One of the smallest car of company',
+    picture: 'sedan3.jpg'
+  },
+  {
+    id: 'fd105551-0f0d-4a9f-bc41-c559c8a17268',
+    mark: 'Mazda',
+    model: 'MX-5',
+    engine: '1.5',
+    HP: 120,
+    price: 90000,
+    description: 'One of the smallest car of company',
+    picture: 'mini1.jpg'
+  },
   ];
 }
 
