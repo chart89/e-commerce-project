@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 
 //selectors
 export const getCar = ({ cars }) => cars.data;
+export const getCarsById = ({ cars }, id) => cars.data.find(car => car.id === id);
 
 // action name creator
 const reducerName = 'cars';
