@@ -4,7 +4,7 @@ import { IMGS_URL } from '../../../config';
 
 const CarouselImg = ({props}) => {
 
-    if (props) console.log('zdjecie', props[0].picture)
+
     return (
         <Carousel className={`mx-auto border my-5 ${styles.carouselImg}`} fade>
             <Carousel.Item>

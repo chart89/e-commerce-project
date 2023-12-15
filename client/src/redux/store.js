@@ -4,9 +4,11 @@ import initialState from './initialState';
 
 // import reducers
 import carsReducer from './carsRedux';
+import cartReducer from './cartRedux';
 
 const subreducers = {
   cars: carsReducer,
+  cart: cartReducer,
 }
 // combine reducers
 const reducer = combineReducers(subreducers);

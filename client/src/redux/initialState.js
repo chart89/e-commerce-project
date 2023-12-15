@@ -1,5 +1,6 @@
 const initialState = {
-    data: []
+    data: [],
+    cart: []
   };
 
 export default initialState;

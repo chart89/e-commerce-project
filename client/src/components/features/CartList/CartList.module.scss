@@ -1,17 +1,8 @@
 @import '../../../styles/settings.scss';
 
-.singleIMG {
-    width: 600px;
-    height: 450px;
-    border: 3px solid $color-warning;
-}
-
-.singleCol {
-    font-family: $font-text;
-    h1 {
-        color: $color-warning;
-        font-weight: 700;
-    }
+.cartListIMG {
+    max-width: 150px;
+    max-height: 112px;
 }
 
 .singleClick {

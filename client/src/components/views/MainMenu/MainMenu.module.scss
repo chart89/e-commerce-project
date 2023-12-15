@@ -14,9 +14,6 @@ h2 {
 .iconLink {
     position: relative;
     font-size: 25px;
-    &.active {
-        border: 1px solid green;
-    }
 } 
 
 .icon {
@@ -42,4 +39,9 @@ h2 {
 .linkActive {
     font-size: 35px;
 
+}
+
+.amtSpan {
+    color: $color-warning;
+    margin-left: -10px;
 }
