@@ -13,8 +13,7 @@ model Car {
   id String @id @default(uuid())
   mark String
   model String
-  engine String
-  HP Int
+  scale String
   price Int
   description String
   picture String

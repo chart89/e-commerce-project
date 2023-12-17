@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Gallery from "./components/pages/Gallery/Gallery";
 import SingleCar from "./components/features/SingleCar/SingleCar";
 import Cart from "./components/pages/Cart/Cart";
+import Order from "./components/pages/Order/Order";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/gallery/:id" element={<SingleCar />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </MainLayout>
     </Container>

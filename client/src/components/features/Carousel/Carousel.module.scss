@@ -1,13 +1,58 @@
+@import '../../../styles/settings.scss';
+
 .carouselImg {
     width: 800px;
-    height: 450px;
+    height: 600px;
     text-align: center;
     }
 
 .carouselDiv {
     width: 800px;
-    height: 450px;
+    height: 600px;
     img {
         object-fit: fill;
     }
+}
+
+.carouselP {
+    font-family: $font-text;
+    color: $color-warning;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.carouselH2 {
+    font-family: $font-logo;
+    color: $color-warning;
+    margin-bottom: 15px;
+}
+
+.listP {
+    color: $color-warning;
+    font-family: $font-text;
+    font-weight: 500;
+    font-size: 20px;
+    position: relative;
+    margin: 0 auto;
+    line-height: 25px;
+}
+
+.listP:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-warning;
+    background: linear-gradient(90deg, transparent, $color-warning);
+    transition: width 0.3s;
+}
+
+.listP:hover:after {
+    width: 100%;
+}
+
+.listP:hover {
+    font-weight: 700;
 }

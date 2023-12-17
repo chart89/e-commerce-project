@@ -8,12 +8,12 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCartRequest } from '../../../redux/cartRedux';
 
-const CarsList = ({id, model, description, picture, price}) => {
+const CarsList = ({id, mark, model, description, picture, price}) => {
 
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
-        dispatch(addToCartRequest({id: id, model: model, amount: 1, sum: price, picture: picture }));
+        dispatch(addToCartRequest({id: id, model: model, amount: 1, sum: price, picture: picture, mark: mark,price: price, comments: '' }));
         console.log(1, price)
     }
 
@@ -29,10 +29,13 @@ const CarsList = ({id, model, description, picture, price}) => {
                 <Card.Body className={styles.listBody}>
                     <Card.Title>
                         <Row>
-                            <Col>{model}</Col>
+                            <Col>{mark}</Col>
                             <Col className="text-end"><span className={styles.listSpan}>$ {price}</span></Col>
                         </Row>
                     </Card.Title>
+                    <Card.Text>
+                        <h6>{model}</h6>
+                    </Card.Text>
                     <Card.Text>
                         {description}
                     </Card.Text>

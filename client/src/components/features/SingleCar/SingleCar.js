@@ -16,11 +16,11 @@ const SingleCar = () => {
     const CarData = useSelector(data => getCarsById(data, id));
     const dispatch = useDispatch();
 
-    const {model, picture} = CarData
+    const {model, picture, mark, price} = CarData
 
     const [amount, setAmount] = useState(1);
     const sum = amount * CarData.price;
-
+    const comments = '';
 
     const changeAmount = (chk) => {
         if (chk === 'plus' && amount <= 9) {
@@ -32,7 +32,7 @@ const SingleCar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addToCartRequest({id, model, amount, sum, picture}));
+        dispatch(addToCartRequest({id, model, amount, sum, picture, mark, price, comments}));
     }
 
 
@@ -45,7 +45,8 @@ const SingleCar = () => {
                     <img className={styles.singleIMG} src={IMGS_URL + CarData.picture} alt={CarData.model} />
                 </Col>
                 <Col className={`mx-5 ${styles.singleCol}`}>
-                    <h1 className="my-5">{CarData.model}</h1>
+                    <h1 className="my-2">{CarData.mark}</h1>
+                    <h4 className="mb-5">{CarData.model}</h4>
                     <h5>$ {CarData.price}</h5>
                     <Row className={`my-3 mx-1 ${styles.singleRow}`}>
                         <Col className={styles.singleClick} onClick={()=>changeAmount('minus')}><span>-</span></Col>
