@@ -10,11 +10,14 @@ import { AppService } from './app.service';
 import { CarsModule } from './cars/cars.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
     
-    CarsModule],
+    CarsModule,
+    
+    OrderModule],
   controllers: [AppController],
   providers: [AppService],
 })

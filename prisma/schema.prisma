@@ -18,3 +18,13 @@ model Car {
   description String
   picture String
 }
+
+model Order {
+  id String @id @default(uuid())
+  product String
+  name String
+  address String
+  email String
+  phone String
+  createdAt DateTime @default(now())
+}

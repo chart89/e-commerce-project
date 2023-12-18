@@ -5,10 +5,12 @@ import initialState from './initialState';
 // import reducers
 import carsReducer from './carsRedux';
 import cartReducer from './cartRedux';
+import orderReducer from './orderRedux';
 
 const subreducers = {
   cars: carsReducer,
   cart: cartReducer,
+  order: orderReducer
 }
 // combine reducers
 const reducer = combineReducers(subreducers);
