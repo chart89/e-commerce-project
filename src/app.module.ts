@@ -17,7 +17,10 @@ import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
-    
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'client', 'build'),
+    }),
+
     CarsModule,
     
     OrderModule,
@@ -38,9 +41,3 @@ export class AppModule implements NestModule {
     });
   }
 }
-
-/*
-ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../', 'client', 'build'),
-    }),
-  */
