@@ -8,6 +8,8 @@ import SingleCar from "./components/features/SingleCar/SingleCar";
 import Cart from "./components/pages/Cart/Cart";
 import Order from "./components/pages/Order/Order";
 import NotFound from "./components/pages/NotFound/NotFound";
+import Login from "./components/pages/Login/Login";
+import Register from "./components/pages/Register/Register";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/gallery/:id" element={<SingleCar />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route element={<NotFound />} />
         </Routes>
       </MainLayout>

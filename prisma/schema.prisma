@@ -28,3 +28,16 @@ model Order {
   phone String
   createdAt DateTime @default(now())
 }
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  password Password?
+}
+
+model Password {
+  id       String @id @default(uuid())
+  hashedPassword String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String @unique
+}

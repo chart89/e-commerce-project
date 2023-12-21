@@ -29,7 +29,7 @@ const MainMenu = () => {
 
     return (
         <Row className="border-bottom border-danger justify-content-between align-middle">
-            <Col className=' d-flex align-items-center'>
+            <Col className=' d-flex align-items-center my-2'>
                 <Nav>
                     <Nav.Link as={NavLink} to={'/'} className={styles.iconLink}>
                         <FontAwesomeIcon onClick={() => setActive('home')} className={`mx-0 ${clsx(styles.icon, active === 'home' && styles.linkActive)}`} icon={faHouse} />

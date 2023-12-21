@@ -11,13 +11,22 @@ import { CarsModule } from './cars/cars.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { OrderModule } from './order/order.module';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
     
     CarsModule,
     
-    OrderModule],
+    OrderModule,
+    
+    UserModule,
+    
+    AuthModule,
+    
+    PrismaModule],
   controllers: [AppController],
   providers: [AppService],
 })
