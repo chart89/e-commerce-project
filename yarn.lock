@@ -731,10 +731,10 @@
     "@types/jsonwebtoken" "8.5.8"
     jsonwebtoken "8.5.1"
 
-"@nestjs/passport@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.npmjs.org/@nestjs/passport/-/passport-9.0.0.tgz"
-  integrity sha512-Gnh8n1wzFPOLSS/94X1sUP4IRAoXTgG4odl7/AO5h+uwscEGXxJFercrZfqdAwkWhqkKWbsntM3j5mRy/6ZQDA==
+"@nestjs/passport@^9.0.3":
+  version "9.0.3"
+  resolved "https://registry.npmjs.org/@nestjs/passport/-/passport-9.0.3.tgz"
+  integrity sha512-HplSJaimEAz1IOZEu+pdJHHJhQyBOPAYWXYHfAPQvRqWtw4FJF1VXl1Qtk9dcXQX1eKytDtH+qBzNQc19GWNEg==
 
 "@nestjs/platform-express@^10.0.0":
   version "10.2.10"
@@ -1049,10 +1049,10 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/passport-local@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.npmjs.org/@types/passport-local/-/passport-local-1.0.34.tgz"
-  integrity sha512-PSc07UdYx+jhadySxxIYWuv6sAnY5e+gesn/5lkPKfBeGuIYn9OPR+AAEDq73VRUh6NBTpvE/iPE62rzZUslog==
+"@types/passport-local@^1.0.38":
+  version "1.0.38"
+  resolved "https://registry.npmjs.org/@types/passport-local/-/passport-local-1.0.38.tgz"
+  integrity sha512-nsrW4A963lYE7lNTv9cr5WmiUD1ibYJvWrpE13oxApFsRt77b0RdtZvKbCdNIY4v/QZ6TRQWaDDEwV1kCTmcXg==
   dependencies:
     "@types/express" "*"
     "@types/passport" "*"
