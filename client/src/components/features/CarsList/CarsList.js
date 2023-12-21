@@ -10,7 +10,6 @@ import { addToCartRequest } from '../../../redux/cartRedux';
 
 const CarsList = ({id, mark, model, description, picture, price}) => {
 
-    console.log('proces', model)
 
     const dispatch = useDispatch();
 
