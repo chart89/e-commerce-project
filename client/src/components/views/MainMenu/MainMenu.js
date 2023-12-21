@@ -44,7 +44,13 @@ const MainMenu = () => {
                 </Nav>
             </Col>
             <Col xs={8} className=' d-flex align-items-center'><h2 className='mx-auto'>Small Cars' World</h2></Col>
-            <Col className=' d-flex align-items-center'><a className={styles.iconLink} href="/"><FontAwesomeIcon className={`mx-0 ${styles.icon}`} icon={faMagnifyingGlass} /></a></Col>
+            <Col className=' d-flex align-items-center'>
+                <Nav>
+                    <Nav.Link as={NavLink} to={'/search'} className={styles.iconLink}>
+                        <FontAwesomeIcon onClick={() => setActive('search')} className={`mx-0 ${clsx(styles.icon, active === 'search' && styles.linkActive)}`} icon={faMagnifyingGlass} />
+                    </Nav.Link>
+                </Nav>
+            </Col>
             <Col className=' d-flex align-items-center'>
                 <Nav>
                     <Nav.Link as={NavLink} to={'/cart'} className={styles.iconLink}>

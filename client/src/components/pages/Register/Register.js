@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { API_URL } from '../../../config';
 import Alert from 'react-bootstrap/Alert';
 import { Spinner } from 'react-bootstrap';
+import styles from './Register.module.scss'
 
 const Register = () => {
 
@@ -48,6 +49,7 @@ const Register = () => {
     };
 
     return (
+    <div className={styles.registerDiv}>
     <Form className="col-12 col-sm-3 mx-auto my-5" onSubmit={handleSubmit}>
 
         <h1 className="my-4">Register</h1>
@@ -113,6 +115,7 @@ const Register = () => {
             Submit
       </Button>
      </Form>
+     </div>
     );
 };
 

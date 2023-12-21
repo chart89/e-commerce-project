@@ -10,6 +10,7 @@ import Order from "./components/pages/Order/Order";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Login from "./components/pages/Login/Login";
 import Register from "./components/pages/Register/Register";
+import Search from "./components/pages/Search/Search";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/search" element={<Search />} />
           <Route element={<NotFound />} />
         </Routes>
       </MainLayout>

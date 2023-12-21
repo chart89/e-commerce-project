@@ -5,6 +5,7 @@ import { API_URL } from '../../../config';
 import Alert from 'react-bootstrap/Alert';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import styles from './Login.module.scss'
 //import { logIn } from '../../../redux/userRedux';
 
 const Login = () => {
@@ -47,6 +48,7 @@ const Login = () => {
     }
 
     return (
+        <div className={styles.loginDiv}>
         <Form className="col-12 col-sm-3 mx-auto my-5" onSubmit={handleSubmit}>
 
             <h1 className="my-4">Log in</h1>
@@ -98,6 +100,7 @@ const Login = () => {
                 Log in
             </Button>
         </Form>
+        </div>
     );
 };
 
