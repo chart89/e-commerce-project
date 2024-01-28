@@ -3,6 +3,8 @@ import styles from './Carousel.module.scss';
 import { IMGS_URL } from '../../../config';
 import { Col, Nav, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 const CarouselImg = ({props}) => {
 
@@ -56,3 +58,9 @@ const CarouselImg = ({props}) => {
 };
 
 export default CarouselImg;
+
+CarouselImg.propTypes = {
+    props: PropTypes.arrayOf(PropTypes.shape({
+        picture: PropTypes.string.isRequired
+    }))
+}

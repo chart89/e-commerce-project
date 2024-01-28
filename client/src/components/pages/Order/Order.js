@@ -7,19 +7,17 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToOrderRequest } from "../../../redux/orderRedux";
-import { useNavigate } from "react-router-dom";
 import { deleteAllCartRequest } from "../../../redux/cartRedux";
 import Alert from 'react-bootstrap/Alert';
+import { loadCartRequest } from "../../../redux/cartRedux";
 
 const Order = () => {
 
     const CartData = useSelector(getAllCart);
     const product = CartData.map(cart=>cart.model + ' ,sum: $' + cart.sum  + ' ,amount: '+ cart.amount + ' ,comments: ' + cart.comments).join('/ ')
-    
-    console.log('join', ...CartData)
+
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -45,6 +43,7 @@ const Order = () => {
 
         dispatch(deleteAllCartRequest());
         setStatus('success');
+        dispatch(loadCartRequest());
     }
 
 

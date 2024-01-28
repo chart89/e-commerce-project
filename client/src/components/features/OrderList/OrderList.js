@@ -1,6 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import styles from './OrderList.module.scss';
 import { IMGS_URL } from "../../../config";
+import PropTypes from 'prop-types';
 
 const OrderList = ({model, picture, mark, amount, sum, comments}) => {
 
@@ -29,3 +30,12 @@ const OrderList = ({model, picture, mark, amount, sum, comments}) => {
 };
 
 export default OrderList;
+
+OrderList.propTypes = {
+    model: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    mark: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    sum: PropTypes.number.isRequired,
+    comments: PropTypes.string.isRequired
+};

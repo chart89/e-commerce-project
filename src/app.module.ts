@@ -15,6 +15,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 
+
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -29,7 +30,9 @@ import { PrismaModule } from './prisma/prisma.module';
     
     AuthModule,
     
-    PrismaModule],
+    PrismaModule,
+    
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -41,3 +44,7 @@ export class AppModule implements NestModule {
     });
   }
 }
+
+
+
+

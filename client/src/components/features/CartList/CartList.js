@@ -3,8 +3,9 @@ import { IMGS_URL } from "../../../config";
 import styles from './CartList.module.scss';
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCartRequest } from "../../../redux/cartRedux";
+import { deleteCartRequest, loadCartRequest } from "../../../redux/cartRedux";
 import { editCartRequest } from "../../../redux/cartRedux";
+import PropTypes from 'prop-types';
 
 const CartList = ({model, picture, mark, price, id, amount, comments}) => {
 
@@ -22,13 +23,16 @@ const CartList = ({model, picture, mark, price, id, amount, comments}) => {
             setAmount(CartAmount - 1);
         }
     }
+    
 
     useEffect(() => {
         dispatch (editCartRequest(id, CartAmount, commentsS, sum));
+        dispatch(loadCartRequest());
     }, [CartAmount, commentsS]);
 
     const handleRemove = () => {
         dispatch(deleteCartRequest(id));
+        dispatch(loadCartRequest());
     }
 
     return (
@@ -69,3 +73,13 @@ const CartList = ({model, picture, mark, price, id, amount, comments}) => {
 };
 
 export default CartList;
+
+CartList.propTypes = {
+    model: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    mark: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    comments: PropTypes.string.isRequired
+};

@@ -13,6 +13,7 @@ export class UserService {
     public getById(id: User['id']): Promise<User | null> {
         return this.prismaService.user.findUnique({
           where: { id },
+          include: { orders: true}
         });
     }
 

@@ -4,16 +4,25 @@ import styles from './MainMenu.module.scss'
 import { Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faMagnifyingGlass, faHouse, faTruckFast  } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import { getAllCart } from '../../../redux/cartRedux';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadCartRequest } from '../../../redux/cartRedux';
 
 const MainMenu = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadCartRequest())
+    }, [dispatch]);
+    
 
     const [active, setActive] = useState('home') // home, gallery, search, cart
 
     const CartData = useSelector(getAllCart);
+    
 
     // create array
     const amountArray = CartData.map(cart => cart.amount)

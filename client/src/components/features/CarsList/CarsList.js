@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCartRequest } from '../../../redux/cartRedux';
+import { addToLocalStorage } from '../../../redux/cartRedux';
+import { loadCartRequest } from '../../../redux/cartRedux';
+import PropTypes from 'prop-types';
 
 const CarsList = ({id, mark, model, description, picture, price}) => {
 
@@ -14,8 +16,11 @@ const CarsList = ({id, mark, model, description, picture, price}) => {
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
-        dispatch(addToCartRequest({id: id, model: model, amount: 1, sum: price, picture: picture, mark: mark,price: price, comments: '' }));
-        console.log(1, price)
+        let cartItem = JSON.parse(localStorage.getItem("cart") || "[]");
+        if(cartItem.filter(x => x.id === id).length > 0) return console.log("Już jest");
+        
+        dispatch(addToLocalStorage({id: id, model: model, amount: 1, sum: price, picture: picture, mark: mark,price: price, comments: '' }));
+        dispatch(loadCartRequest());
     }
 
     return (
@@ -34,19 +39,18 @@ const CarsList = ({id, mark, model, description, picture, price}) => {
                             <Col className="text-end"><span className={styles.listSpan}>$ {price}</span></Col>
                         </Row>
                     </Card.Title>
-                    <Card.Text>
-                        <h6>{model}</h6>
+                    <Card.Text className='bold'>
+                        {model}
                     </Card.Text>
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Card.Text >
                         <Nav>
                             <Nav.Link as={NavLink} to={`/gallery/${id}`}>
                                 <p className={styles.listP}>Show more</p>
                             </Nav.Link>    
                         </Nav>
-                    </Card.Text>
+                    
                 </Card.Body>
             </Card>
         </Col>
@@ -54,3 +58,22 @@ const CarsList = ({id, mark, model, description, picture, price}) => {
 };
 
 export default CarsList;
+
+CarsList.propTypes = {
+    id: PropTypes.string.isRequired,
+    mark: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    cartItem: PropTypes.arrayOf(PropTypes.shape({
+        amount: PropTypes.number,
+        comments: PropTypes.string,
+        id: PropTypes.string,
+        mark: PropTypes.string,
+        model: PropTypes.string,
+        picture: PropTypes.string,
+        price: PropTypes.number,
+        sum: PropTypes.number,
+    }).isRequired)
+  }

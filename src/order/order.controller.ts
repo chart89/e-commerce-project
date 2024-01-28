@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Request, Param, ParseUUIDPipe, NotFoundException } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { CreateOrderDTO } from './dtos/create-order.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('order')
 export class OrderController {
@@ -11,8 +12,16 @@ export class OrderController {
       return this.orderService.getAll();
     }
 
+    @Get('/:id')
+    async getById(@Param('id', new ParseUUIDPipe()) id: string) {
+      const user = await this.orderService.getById(id);
+      if (!user) throw new NotFoundException('Order not found');
+      return user;
+    }
+
     @Post('/')
-    create(@Body() orderData: CreateOrderDTO) {
-      return this.orderService.create(orderData);
+    @UseGuards(JwtAuthGuard)
+    create(@Body() orderData: CreateOrderDTO, @Request() req) {
+      return this.orderService.create(orderData, req.user.userId);
     };
 }

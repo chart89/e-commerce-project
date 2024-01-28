@@ -1,11 +1,20 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getAllCart } from "../../../redux/cartRedux";
 import { Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
 import CartList from "../../features/CartList/CartList";
 import styles from './Cart.module.scss';
 import { NavLink } from 'react-router-dom';
+import { addToLocalStorage } from "../../../redux/cartRedux";
+import { useEffect } from "react";
+import { loadCartRequest } from "../../../redux/cartRedux";
 
 const Cart = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadCartRequest())
+      }, [dispatch]);
 
     const CartData = useSelector(getAllCart);
     

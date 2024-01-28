@@ -14,6 +14,7 @@ const Home = () => {
         dispatch(loadCarsRequest())
       }, [dispatch]);
 
+
     if(!cars) return <div className="my-5 w-25 text-center mx-auto"><Spinner animation="border" variant="danger" /></div>
     return (
         <Container>

@@ -11,15 +11,30 @@ export class OrderService {
         return this.prismaService.order.findMany();
     }
 
+    public getById(id: Order['id']): Promise<Order | null> {
+      return this.prismaService.order.findUnique({
+        where: { id },
+        include: { user: true}
+      });
+  }
+
     public async create(
-        orderData: Omit<Order, 'id' | 'createdAt'>,
+        orderData: Omit<Order, 'id' | 'createdAt' | 'userId'>,
+        user: string
       ): Promise<Order> {
-        const {...otherData } = orderData;
+        console.log(user);
+        const otherData = {
+          product: orderData.product,
+          name: orderData.name,
+          address: orderData.address,
+          email: orderData.email,
+          phone: orderData.phone, 
+          userId: user
+        };
         try {
           return await this.prismaService.order.create({
-            data: {
-              ...otherData
-            },
+            data: 
+              otherData
           });
         } catch (error) {
           if (error.code === 'P2025')
