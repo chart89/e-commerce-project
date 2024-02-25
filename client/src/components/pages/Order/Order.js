@@ -14,8 +14,11 @@ import { loadCartRequest } from "../../../redux/cartRedux";
 const Order = () => {
 
     const CartData = useSelector(getAllCart);
-    const product = CartData.map(cart=>cart.model + ' ,sum: $' + cart.sum  + ' ,amount: '+ cart.amount + ' ,comments: ' + cart.comments).join('/ ')
 
+    const products = CartData.map(cart=>cart.id + ',' + cart.sum  + ','+ cart.amount + ',' + cart.comments).join('/');
+    //const products = [];
+    //CartData.map(product => products.push({carId: product.id, sum: product.sum, amount: product.amount, comments: product.comments}));
+    console.log('string', products);
 
     const dispatch = useDispatch();
 
@@ -39,7 +42,7 @@ const Order = () => {
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
     const handleSubmit = (e) => {
-        dispatch(addToOrderRequest({product, name, address, email, phone}));
+        dispatch(addToOrderRequest({products, name, address, email, phone}));
 
         dispatch(deleteAllCartRequest());
         setStatus('success');

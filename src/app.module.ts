@@ -14,6 +14,8 @@ import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
 
 
 @Module({
@@ -31,6 +33,11 @@ import { PrismaModule } from './prisma/prisma.module';
     AuthModule,
     
     PrismaModule,
+
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true
+    })
     
   ],
   controllers: [AppController],

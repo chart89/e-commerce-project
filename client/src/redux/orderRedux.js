@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { API_URL } from '../config';
-import shortid from 'shortid';
 
 //selectors
 export const getAllOrder = state => state.order;
@@ -15,11 +14,13 @@ export const addOrder = payload => ({ payload, type: ADD_ORDER });
 
 
 /* THUNKS */
-export const addToOrderRequest = ({product, name, address, email, phone}) => {
-    return async dispatch => {
-      try {
+export const addToOrderRequest = ({products, name, address, email, phone}) => {
 
-        let res = await axios.post(`${API_URL}/order`, {product, name, address, email, phone});
+  
+    return async dispatch => {
+      
+      try {
+        let res = await axios.post(`${API_URL}/order`, {products, name, address, email, phone});
         dispatch(addOrder(res));
       } catch(e) {
         console.log(e);

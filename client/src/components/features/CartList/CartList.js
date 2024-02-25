@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { deleteCartRequest, loadCartRequest } from "../../../redux/cartRedux";
 import { editCartRequest } from "../../../redux/cartRedux";
 import PropTypes from 'prop-types';
+import WidgetAmount from "../WidgetAmount/WidgetAmount";
+import { changeAmount } from "../../../utils/changeAmount";
 
 const CartList = ({model, picture, mark, price, id, amount, comments}) => {
 
@@ -16,14 +18,9 @@ const CartList = ({model, picture, mark, price, id, amount, comments}) => {
 
     const sum = CartAmount * price;
 
-    const changeAmount = async (chk) => {
-        if (chk === 'plus' && CartAmount <= 9) {
-           setAmount(CartAmount + 1);
-        } else if (chk === 'minus' && CartAmount > 1) {
-            setAmount(CartAmount - 1);
-        }
-    }
-    
+    const changeAmountFunction = (chk) => {
+        changeAmount(chk, CartAmount, setAmount);
+    };
 
     useEffect(() => {
         dispatch (editCartRequest(id, CartAmount, commentsS, sum));
@@ -46,11 +43,7 @@ const CartList = ({model, picture, mark, price, id, amount, comments}) => {
                 <p>{model}</p>
             </Col>
             <Col>
-                <Row className={`my-3 mx-1 ${styles.singleRow}`}>
-                    <Col className={styles.singleClick} onClick={()=>changeAmount('minus')}><span>-</span></Col>
-                    <Col className="text-center">{CartAmount}</Col>
-                    <Col className={styles.singleClick} onClick={()=>changeAmount('plus')}><span>+</span></Col>
-                </Row>
+                <WidgetAmount changeAmount={changeAmountFunction} amount={CartAmount} />
                 <h5 className={styles.cartH5}>$ {sum}</h5>
             </Col>
             <Col>
@@ -83,3 +76,4 @@ CartList.propTypes = {
     amount: PropTypes.number.isRequired,
     comments: PropTypes.string.isRequired
 };
+

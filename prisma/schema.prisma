@@ -9,6 +9,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Car {
   id String @id @default(uuid())
   mark String
@@ -17,11 +18,11 @@ model Car {
   price Int
   description String
   picture String
+  orderedProduct OrderedProducts[]
 }
 
 model Order {
   id String @id @default(uuid())
-  product String
   name String
   address String
   email String
@@ -29,6 +30,8 @@ model Order {
   user User @relation(fields: [userId], references: [id])
   userId String
   createdAt DateTime @default(now())
+  orderedProduct OrderedProducts[]
+  products String?
 }
 
 model User {
@@ -44,4 +47,17 @@ model Password {
   user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId   String @unique
 }
+
+model OrderedProducts {
+ id String @id @default(uuid())
+ car Car @relation(fields: [carId], references: [id])
+ carId String
+ sum String
+ amount String
+ comments String
+ createdAt DateTime @default(now())
+ order Order @relation(fields: [orderId], references: [id])
+ orderId String
+}
+
 

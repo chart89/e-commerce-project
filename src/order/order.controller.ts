@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, UseGuards, Request, Param, ParseUUIDPipe, 
 import { OrderService } from './order.service';
 import { CreateOrderDTO } from './dtos/create-order.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { CreateOrderproductDTO } from './dtos/create-orderedProduct.dto';
 
 @Controller('order')
 export class OrderController {
@@ -21,7 +22,7 @@ export class OrderController {
 
     @Post('/')
     @UseGuards(JwtAuthGuard)
-    create(@Body() orderData: CreateOrderDTO, @Request() req) {
-      return this.orderService.create(orderData, req.user.userId);
+    create(@Body() orderData: CreateOrderDTO, @Request() req, orderedProduct: CreateOrderproductDTO) {
+      return this.orderService.create(orderData, req.user.userId, orderedProduct);
     };
 }

@@ -23,7 +23,7 @@ export const loadCart = payload => ({ payload, type: LOAD_CART })
 export const loadCartRequest = () => {
   return async dispatch => {
     try {
-      let cartItem = JSON.parse(localStorage.getItem("cart") || "[]");
+      let cartItem = await JSON.parse(localStorage.getItem("cart") || "[]");
       dispatch(loadCart(cartItem));
     } catch(e) {
       console.log(e);
@@ -62,9 +62,9 @@ export const deleteCartRequest = (id) => {
     return async dispatch => {
   
       try {
-        const cartItem = JSON.parse(localStorage.getItem("cart") || "[]");
-        const editArray = cartItem.map(not => (not.id === id ? { ...not, amount, comments, sum } : not));
-        dispatch(localStorage.setItem('cart', JSON.stringify(editArray)));  
+        const cartItem = await JSON.parse(localStorage.getItem("cart") || "[]");
+        const editArray = await cartItem.map(not => (not.id === id ? { ...not, amount, comments, sum } : not));
+        dispatch(localStorage.setItem('cart',JSON.stringify(editArray)));  
       } catch (err) {
         console.log(err);
       }

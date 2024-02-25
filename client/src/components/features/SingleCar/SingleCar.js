@@ -12,7 +12,8 @@ import { addToLocalStorage } from "../../../redux/cartRedux";
 import PropTypes from 'prop-types';
 import { loadCarsRequestbyId } from "../../../redux/carsRedux";
 import { getCarById } from "../../../redux/carsRedux";
-
+import WidgetAmount from "../WidgetAmount/WidgetAmount";
+import { changeAmount } from "../../../utils/changeAmount";
 
 
 const SingleCar = () => {
@@ -28,18 +29,15 @@ const SingleCar = () => {
     //const CarData = useSelector(data => getCarsById(data, id));
     const CarData = useSelector(getCarById);
 
-    const {model, picture, mark, price, description} = CarData
+    const {model, picture, mark, price, description, scale} = CarData
 
     const [amount, setAmount] = useState(1);
     const sum = amount * CarData.price;
     const comments = '';
 
-    const changeAmount = (chk) => {
-        if (chk === 'plus' && amount <= 9) {
-            setAmount(amount + 1);
-        } else if (chk === 'minus' && amount > 1) {
-            setAmount(amount - 1);
-        }
+
+    const changeAmountFunction = (chk) => {
+        changeAmount(chk, amount, setAmount);
     }
 
     const handleSubmit = (e) => {
@@ -62,12 +60,9 @@ const SingleCar = () => {
                 <Col className={`mx-5 ${styles.singleCol}`}>
                     <h1 className="my-2">{mark}</h1>
                     <h4 className="mb-5">{model}</h4>
+                    <h5 className="mb-5">Scale: {scale}</h5>
                     <h5>$ {CarData.price}</h5>
-                    <Row className={`my-3 mx-1 ${styles.singleRow}`}>
-                        <Col className={styles.singleClick} onClick={()=>changeAmount('minus')}><span>-</span></Col>
-                        <Col className="text-center">{amount}</Col>
-                        <Col className={styles.singleClick} onClick={()=>changeAmount('plus')}><span>+</span></Col>
-                    </Row>  
+                    <WidgetAmount changeAmount={changeAmountFunction} amount={amount} />  
                     <Button variant="danger" type="submit">Add to cart ${sum} </Button>{' '}
                     <p className="my-5">{description}</p>
                     
@@ -81,9 +76,12 @@ const SingleCar = () => {
 export default SingleCar;
 
 SingleCar.propTypes = {
-    model: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-    mark: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    CarData: PropTypes.arrayOf(PropTypes.shape({
+        model: PropTypes.string.isRequired,
+        picture: PropTypes.string.isRequired,
+        mark: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired
+    }).isRequired)
 }
+
