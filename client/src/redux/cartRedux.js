@@ -34,9 +34,9 @@ export const loadCartRequest = () => {
   export const addToLocalStorage = (cart) => {
     return async dispatch => {
       try {
-        const cartItem = JSON.parse(localStorage.getItem("cart") || "[]");
-        cartItem.push(cart);
-        dispatch(localStorage.setItem('cart', JSON.stringify(cartItem)));
+        const cartItem = await JSON.parse(localStorage.getItem("cart") || "[]");
+        await cartItem.push(cart);
+        await dispatch(localStorage.setItem('cart', JSON.stringify(cartItem)));
       } catch(e) {
         console.log(e);
       }
@@ -50,7 +50,7 @@ export const deleteCartRequest = (id) => {
 
         const cartItem = JSON.parse(localStorage.getItem("cart") || "[]");
         const deletedArray = cartItem.filter(deleteItem => deleteItem.id !== id);
-        dispatch(localStorage.setItem('cart', JSON.stringify(deletedArray)));
+        await dispatch(localStorage.setItem('cart', JSON.stringify(deletedArray)));
       } catch(e) {
         console.log(e);
       }
@@ -64,7 +64,7 @@ export const deleteCartRequest = (id) => {
       try {
         const cartItem = await JSON.parse(localStorage.getItem("cart") || "[]");
         const editArray = await cartItem.map(not => (not.id === id ? { ...not, amount, comments, sum } : not));
-        dispatch(localStorage.setItem('cart',JSON.stringify(editArray)));  
+        await dispatch(localStorage.setItem('cart',JSON.stringify(editArray)));  
       } catch (err) {
         console.log(err);
       }
@@ -75,7 +75,7 @@ export const deleteCartRequest = (id) => {
     return async dispatch => {
   
       try {
-        dispatch(localStorage.setItem('cart', []));
+        await dispatch(localStorage.setItem('cart', []));
       } catch (err) {
         console.log(err);
       }

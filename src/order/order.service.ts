@@ -38,7 +38,7 @@ export class OrderService {
         const CartData: string = orderData.products;
         const firstArray: string[] = CartData.split('/');
         const newObject = {};
-        for(let i = 0; i < firstArray.length; i++) {
+        for(let i: number = 0; i < firstArray.length; i++) {
           newObject[i] = firstArray[i];
         };
 
