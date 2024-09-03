@@ -17,7 +17,6 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -25,20 +24,19 @@ import configuration from './config/configuration';
     }),
 
     CarsModule,
-    
+
     OrderModule,
-    
+
     UserModule,
-    
+
     AuthModule,
-    
+
     PrismaModule,
 
     ConfigModule.forRoot({
       load: [configuration],
-      isGlobal: true
-    })
-    
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -51,7 +49,3 @@ export class AppModule implements NestModule {
     });
   }
 }
-
-
-
-
